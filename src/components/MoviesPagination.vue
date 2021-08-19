@@ -6,25 +6,25 @@
       :total-rows="total"
       prev-text="Prev"
       next-text="Next"
-      ></b-pagination>
+    ></b-pagination>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MoviesPagination',
+  name: "MoviesPagination",
   props: {
     currentPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
     total: {
       type: Number,
-      default: 1
+      default: 1,
     },
     perPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
   },
   computed: {
@@ -33,16 +33,16 @@ export default {
         return this.currentPage;
       },
       set(value) {
-        this.$emit('pageChanged', value);
+        this.$emit("pageChanged", value);
       },
-    }
+    },
   },
-}
+};
 </script>
 
 <style scoped>
 .movies-pagination {
-  margin-top: 30px;
+  margin-top: auto;
 }
 .movies-pagination >>> .pagination .page-item .page-link {
   background-color: transparent;

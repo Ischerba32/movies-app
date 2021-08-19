@@ -1,18 +1,29 @@
 <template>
   <div class="movie-item mb-3">
-    <div class="movie-item-poster" :style="posterBg">
-    </div>
+    <div class="movie-item-poster" :style="posterBg"></div>
     <div class="movie-info-wrap d-flex flex-column justify-content-between">
       <div class="movie-item-info">
-        <h3 class="movie-title">{{movie.Title}}</h3>
-        <span class="movie-year">{{movie.Year}}</span>
+        <h3 class="movie-title">{{ movie.Title }}</h3>
+        <span class="movie-year">{{ movie.Year }}</span>
       </div>
       <div class="movie-item-controls row no-gutters">
         <div class="col pr-2">
-          <b-button size="md" block variant="outline-light">Edit</b-button>
+          <b-button
+            size="md"
+            block
+            variant="outline-light"
+            @click="showInfoModalEvent"
+            >Info</b-button
+          >
         </div>
         <div class="col pl-2">
-          <b-button size="md" block variant="outline-light">Remove</b-button>
+          <b-button
+            size="md"
+            block
+            variant="outline-light"
+            @click="emitRemoveEvent"
+            >Remove</b-button
+          >
         </div>
       </div>
     </div>
@@ -23,7 +34,7 @@
 export default {
   name: "MovieItem",
   props: {
-    movie:{
+    movie: {
       type: Object,
       requred: true,
     },
@@ -32,11 +43,22 @@ export default {
   computed: {
     posterBg() {
       return {
-        'background-image': `url(${this.movie.Poster})`
-      }
-    }
+        "background-image": `url(${this.movie.Poster})`,
+      };
+    },
   },
-}
+  methods: {
+    emitRemoveEvent() {
+      this.$emit("removeItem", {
+        id: this.movie.imdbID,
+        title: this.movie.Title,
+      });
+    },
+    showInfoModalEvent() {
+      this.$emit("showModal", this.movie.imdbID);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -45,11 +67,11 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   overflow: hidden;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   height: 400px;
 }
 .movie-item:hover {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, .7);
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.7);
   transform: scale(1.02);
 }
 .movie-item-poster {
@@ -67,14 +89,14 @@ export default {
   padding: 20px 10px;
   height: 100%;
   opacity: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
 }
 .movie-item:hover .movie-info-wrap {
   opacity: 1;
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .movie-title {
   font-size: 20px;

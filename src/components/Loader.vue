@@ -2,20 +2,20 @@
   <div
     class="loader-wrap d-flex align-items-center justify-content-center"
     v-if="isShowLoader"
-    >
+  >
     <b-spinner type="grow" variant="light"></b-spinner>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'Loader',
+  name: "Loader",
   computed: {
     ...mapGetters(["isShowLoader"]),
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -27,6 +27,5 @@ export default {
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
-
 }
 </style>

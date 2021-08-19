@@ -4,28 +4,28 @@
 
 <script>
 export default {
-  name: 'PosterBg',
+  name: "PosterBg",
   props: {
     poster: {
       type: String,
-      default: '',
-    }
+      default: "",
+    },
   },
   data: () => ({
-    defaultPosterBg: 'linear-gradient(45deg, rgb(0,3,38) 0%, rgb(82,15,117) 100%);'
+    defaultPosterBg:
+      "linear-gradient(45deg, rgb(0,3,38) 0%, rgb(82,15,117) 100%);",
   }),
   computed: {
     posterStyle() {
       return {
-        'background-image': this.posterBg
-      }
+        "background-image": this.posterBg,
+      };
     },
     posterBg() {
-      return this.poster ? `url(${this.poster})` : this.defaultPosterBg
-    }
-  }
-
-}
+      return this.poster ? `url(${this.poster})` : this.defaultPosterBg;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -38,16 +38,20 @@ export default {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 .poster-page-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   opacity: 0.7;
-  background-image: linear-gradient(45deg, rgb(0,3,38) 0%, rgb(82,15,117) 100%);
+  background-image: linear-gradient(
+    45deg,
+    rgb(0, 3, 38) 0%,
+    rgb(82, 15, 117) 100%
+  );
 }
 </style>

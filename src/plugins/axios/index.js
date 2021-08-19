@@ -1,5 +1,5 @@
-import axios from 'axios'
-import interceptors from "./interceptors"
+import axios from "axios";
+import interceptors from "./interceptors";
 const instance = axios.create({
   baseURL: process.env.VUE_APP_API_URL,
   // params: {
@@ -8,4 +8,4 @@ const instance = axios.create({
   // }
 });
 interceptors(instance);
-export default instance
+export default instance;
