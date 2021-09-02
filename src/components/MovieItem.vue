@@ -109,4 +109,9 @@ export default {
 .btn-outline-light {
   width: 100%;
 }
+@media screen and (max-width: 991px) {
+  .movie-item{
+    height: 500px;
+  }
+}
 </style>

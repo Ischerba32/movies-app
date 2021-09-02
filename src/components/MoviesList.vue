@@ -4,7 +4,7 @@
       <h3 class="list-title">{{ listTitle }}</h3>
       <b-row>
         <template v-if="isExist">
-          <b-col cols="3" v-for="(movie, key) in list" :key="key">
+          <b-col cols="12" sm="12" md="6" lg="3" xl="3" v-for="(movie, key) in list" :key="key">
             <MovieItem
               :movie="movie"
               @mouseover.native="onMouseOver(movie.Poster)"
@@ -59,7 +59,7 @@ export default {
       return Boolean(Object.keys(this.list).length);
     },
     listTitle() {
-      return this.isSearch ? "Search result" : "IMDB Top 250";
+      return this.isSearch ? "Search result" : "IMDb Top 250";
     },
     selectedMovie() {
       return this.selectedMovieID ? this.list[this.selectedMovieID] : null;
