@@ -79,8 +79,8 @@ export default {
         this.removeMovie(id);
         this.showNotify({
           msg: "Movie deleted successful",
-          variant: "success",
           title: "Success",
+          variant: "success",
         });
       }
     },

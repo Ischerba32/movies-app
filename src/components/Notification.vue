@@ -15,11 +15,12 @@ export default {
   },
   methods: {
     showNotification({ variant, msg, title }) {
-      this.$bvToast.toast(msg, {
+      this.$root.$bvToast.toast(msg, {
         title,
         variant,
         solid: true,
       });
+      console.log(title, msg, variant);
     },
   },
 };

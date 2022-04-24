@@ -113,6 +113,7 @@ export default {
   line-height: 1.5;
   font-size: 1.25rem;
 }
+
 .movie-info-content {
   padding: 1rem;
   background-color: #fff;
@@ -137,6 +138,11 @@ export default {
   font-size: 3.5rem;
   font-weight: 300;
   line-height: 1.2;
+}
+@media screen and (max-width: 991px) {
+  .movie-title{
+    font-size: 2rem;
+  }
 }
 .movie-rating {
   padding: 0;

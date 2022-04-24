@@ -74,20 +74,23 @@ const moviesStore = {
         dispatch("fetchMovies");
       }
     },
+    // Сначало сделать поиск, сформировать массив id и зафетчить их
     async searchMovies({ commit, dispatch }, query) {
       try {
         dispatch("toggleLoader", true, { root: true });
         const response = await axios.get(`/?s=${query}`);
+        console.log(response);
         if (response.Error) {
           throw Error(response.Error);
         }
         const movies = serializeResponse(response.Search);
+        console.log(movies);
         commit(MOVIES, movies);
-      } catch (error) {
+      } catch (err) {
         // console.log(error.message);
         dispatch(
           "showNotify",
-          { msg: error.message, title: "Error", variant: "danger" },
+          { msg: err.message, title: "Error", variant: "danger" },
           { root: true }
         );
       } finally {

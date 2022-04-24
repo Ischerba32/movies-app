@@ -80,4 +80,8 @@ export default {
 li {
   list-style: none;
 }
+
+/* .toast:not(.show) {
+  display: block;
+} */
 </style>
